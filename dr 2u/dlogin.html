@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Login - DR 2U</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e8f5e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2e7d32;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #c8e6c9;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #43a047;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #388e3c;
+    }
+
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Doctor Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="doctorId">Doctor ID</label>
+        <input type="text" id="doctorId" name="doctorId" required>
+      </div>
+      <div class="form-group">
+        <label for="doctorPassword">Password</label>
+        <input type="password" id="doctorPassword" name="doctorPassword" required>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+      <div class="message" id="loginMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      const doctorId = document.getElementById("doctorId").value;
+      const doctorPassword = document.getElementById("doctorPassword").value;
+      const messageDiv = document.getElementById("loginMessage");
+
+      // Dummy validation (replace with real authentication logic)
+      if (doctorId === "doctor123" && doctorPassword === "pass123") {
+        messageDiv.style.color = "green";
+        messageDiv.textContent = "Login successful!";
+        setTimeout(() => {
+          window.location.href = "doctor.html"; // Redirect to doctor dashboard
+        }, 1000);
+      } else {
+        messageDiv.style.color = "red";
+        messageDiv.textContent = "Invalid Doctor ID or Password!";
+      }
+    });
+  </script>
+
+</body>
+</html>

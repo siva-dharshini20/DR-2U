@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Home - DR 2U</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --accent: #b2dfdb;
+      --bg: #e0f2f1;
+      --card-glass: rgba(255, 255, 255, 0.15);
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(to right, #43a047, #66bb6a);
+      color: white;
+      padding: 25px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: var(--primary);
+      padding: 12px;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #1b5e20;
+    }
+
+    .main {
+      flex: 1;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .welcome h2 {
+      color: var(--primary);
+      font-size: 32px;
+    }
+
+    .welcome p {
+      color: #555;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 10px auto 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .card {
+      background: var(--card-glass);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      color: #222;
+      border: 1px solid #b2dfdb;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #444;
+      font-size: 14px;
+    }
+    .action-btn {
+      background-color: #00796b;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 50px; /* ✅ makes it oval */
+      font-size: 14px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #004d40;
+}
+
+
+    .logout-btn {
+      margin-top: 40px;
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #b71c1c;
+    }
+
+    footer {
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 16px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    DR 2U -Doctor Dashboard
+  </header>
+
+  <nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Appointments</a>
+    <a href="#">Patients</a>
+    <a href="#">Reports</a>
+    <a href="#">Profile</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+
+  <main class="main">
+    <div class="welcome">
+      <h2>Welcome, Dr. Meera Sinha</h2>
+      <p>Manage your appointments, consult patients, and access medical records all in one place with ease and efficiency.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Today's Appointments</h3>
+        <p>Check your schedule for the day. See who's visiting and prepare accordingly.</p>
+        <button class="action-btn">View Appointments</button>
+      </div>
+      <div class="card">
+        <h3>Patient Records</h3>
+        <p>View and update patient details, diagnosis, and consultation history.</p>
+        <button class="action-btn">View Records</button>
+      </div>
+      <div class="card">
+        <h3>Prescriptions</h3>
+        <p>Create and manage digital prescriptions and send them directly to patients.</p>
+        <button class="action-btn">View Prescriptions</button>
+      </div>
+      <div class="card">
+        <h3>Teleconsultations</h3>
+        <p>Start secure video calls with patients and monitor their recovery remotely.</p>
+         <button class="action-btn">View</button>
+      </div>
+      <div class="card">
+        <h3>Doctor Fees Transactions</h3>
+        <p>Track and manage your consultation fees and transaction history.</p>
+        <button class="action-btn">View Transactions</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; DR 2U — Doctor Module
+  </footer>
+
+  <script>
+    function logout() {
+      alert("Logging out...");
+      window.location.href = "dlogin.html"; // Update with your actual login page
+    }
+  </script>
+
+</body>
+</html>

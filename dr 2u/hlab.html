@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DR 2 U - Lab Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e8f5e9;
+    }
+
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #388e3c;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .search-bar {
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 70%;
+      max-width: 400px;
+      padding: 10px;
+      border: 1px solid #a5d6a7;
+      border-radius: 8px;
+    }
+
+    section {
+      padding: 30px;
+    }
+
+    h2 {
+      color: #2e7d32;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #c8e6c9;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      color: #1b5e20;
+    }
+
+    .contact, .footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer {
+      background-color: #2e7d32;
+      color: white;
+    }
+
+    /* Copilot Assistant */
+    .copilot-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2e7d32;
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .copilot-box {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: white;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      padding: 15px;
+      z-index: 100;
+    }
+
+    .copilot-box input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .copilot-box .response {
+      font-size: 14px;
+      color: #333;
+    }
+
+    @media screen and (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+      .search-bar input {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>DR 2 U - Laboratory Module</h1>
+    <p>Your Trusted Diagnostic Partner</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Tests</a>
+    <a href="#">Sample Booking</a>
+    <a href="#">Upload Report</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search lab tests...">
+  </div>
+
+  <section>
+    <h2>Available Tests</h2>
+    <div class="features">
+      <div class="card">
+        <h3>CBC Test</h3>
+        <p>Complete Blood Count to detect infections, anemia, etc.</p>
+        <p><strong>₹350</strong></p>
+      </div>
+      <div class="card">
+        <h3>Thyroid Panel</h3>
+        <p>TSH, T3, T4 for thyroid health assessment.</p>
+        <p><strong>₹500</strong></p>
+      </div>
+      <div class="card">
+        <h3>Diabetes Test</h3>
+        <p>Includes fasting and post-meal glucose levels.</p>
+        <p><strong>₹400</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Home Sample Collection</h2>
+    <p>Book a convenient home visit and get your samples collected safely.</p>
+  </section>
+
+  <section>
+    <h2>Upload Patient Reports</h2>
+    <p>Lab staff can upload reports and patients can download anytime.</p>
+  </section>
+
+  <section>
+    <h2>Contact Us</h2>
+    <p><strong>Email:</strong> lab@dr2u.in</p>
+    <p><strong>Phone:</strong> +91 98765 43210</p>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 DR 2 U Laboratories | Practo Clone
+  </footer>
+
+  <!-- Copilot Chat Assistant -->
+  <div class="copilot-box" id="copilotBox">
+    <input type="text" id="copilotInput" placeholder="Ask me anything...">
+    <div class="response" id="copilotResponse"></div>
+  </div>
+  <button class="copilot-btn" onclick="toggleCopilot()">🤖 Ask Copilot</button>
+
+  <script>
+    function toggleCopilot() {
+      const box = document.getElementById("copilotBox");
+      box.style.display = box.style.display === "flex" ? "none" : "flex";
+    }
+
+    document.getElementById("copilotInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const query = e.target.value.toLowerCase();
+        const responseEl = document.getElementById("copilotResponse");
+        if (query.includes("cbc")) {
+          responseEl.innerText = "CBC stands for Complete Blood Count. It measures red and white cells, platelets, etc.";
+        } else if (query.includes("thyroid")) {
+          responseEl.innerText = "Thyroid test includes T3, T4, and TSH hormones to check thyroid function.";
+        } else if (query.includes("upload report")) {
+          responseEl.innerText = "Go to 'Upload Report' in the menu to upload lab results.";
+        } else {
+          responseEl.innerText = "Sorry, I don't have information on that. Try asking about CBC, thyroid, etc.";
+        }
+        e.target.value = "";
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab Login - DR 2 U</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e8f5e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #388e3c;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #c8e6c9;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+
+    .toggle-link {
+      text-align: center;
+      margin-top: 15px;
+      color: #2e7d32;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h2>Lab Staff Login</h2>
+      <form onsubmit="handleLogin(event)">
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" placeholder="Enter username">
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter password">
+
+        <button type="submit" >Login</button> 
+      </form>
+      <div class="toggle-link" onclick="toggleForms()">Don't have an account? Create one</div>
+    </div>
+
+    <!-- Create Account Form -->
+    <div id="signupForm" style="display: none;">
+      <h2>Create Account</h2>
+      <form onsubmit="handleSignup(event)">
+        <label for="signupName">Full Name</label>
+        <input type="text" id="signupName" placeholder="Enter your name">
+
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" placeholder="Enter email">
+
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername" placeholder="Choose username">
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="Create password">
+
+        <button type="submit">Create Account</button> onclick="window.location.href='hlab.html';"    </form>
+      <div class="toggle-link" onclick="toggleForms()">Already have an account? Login</div>
+    </div>
+
+    <div class="footer">© 2025 DR 2 U Labs</div>
+  </div>
+
+  <script>
+    function toggleForms() {
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+
+      if (loginForm.style.display === "none") {
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+      } else {
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+      }
+    }
+
+    function handleLogin(event) {
+      event.preventDefault();
+      const username = document.getElementById("loginUsername").value.trim();
+      const password = document.getElementById("loginPassword").value.trim();
+
+      if (!username || !password) {
+        alert("Please fill in both fields.");
+        return;
+      }
+
+      alert("Login successful! Welcome, " + username);
+      window.location.href = "home.html"; // For redirection
+    }
+
+    function handleSignup(event) {
+      event.preventDefault();
+      const name = document.getElementById("signupName").value.trim();
+      const email = document.getElementById("signupEmail").value.trim();
+      const username = document.getElementById("signupUsername").value.trim();
+      const password = document.getElementById("signupPassword").value.trim();
+
+      if (!name || !email || !username || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      alert("Account created successfully for " + name);
+      toggleForms(); // Redirect to login form
+    }
+  </script>
+
+</body>
+</html>
